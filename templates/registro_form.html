@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Registro</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="{{ form.sexo.id_for_label }}">Sexo:</label>
+      {{ form.sexo }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.fecha_nacimiento.id_for_label }}">Fecha de Nacimiento:</label>
+      {{ form.fecha_nacimiento }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+      {{ form.nombre }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.apellido.id_for_label }}">Apellido:</label>
+      {{ form.apellido }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.email.id_for_label }}">Email:</label>
+      {{ form.email }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.direccion.id_for_label }}">Dirección:</label>
+      {{ form.direccion }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.casa_apto.id_for_label }}">Casa o Apartamento:</label>
+      {{ form.casa_apto }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.pais.id_for_label }}">País:</label>
+      {{ form.pais }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.departamento.id_for_label }}">Departamento:</label>
+      {{ form.departamento }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.ciudad.id_for_label }}">Ciudad:</label>
+      {{ form.ciudad }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.descripcion.id_for_label }}">Descripción:</label>
+      {{ form.descripcion }}
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {{ form.media }}
+{% endblock %}

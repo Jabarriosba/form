@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Registros</h2>
+<a class="btn btn-primary mb-3" href="{% url 'registro_create' %}">Agregar registro</a>
+
+{% if registros %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Ciudad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for registro in registros %}
+        <tr>
+          <td>{{ registro.id }}</td>
+          <td>{{ registro.nombre }}</td>
+          <td>{{ registro.apellido }}</td>
+          <td>{{ registro.email }}</td>
+          <td>{{ registro.ciudad }}</td>
+          <td>
+            <a class="btn btn-secondary" href="{% url 'registro_update' registro.id %}">Editar</a>
+            <form action="{% url 'registro_delete' registro.id %}" method="POST" style="display: inline">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h4>Total Registros Por Ciudades:</h4>
+  <ul>
+    {% for total in total_por_ciudad %}
+
+      <li>{{ total.ciudad }}: {{ total.total }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No hay registros</p>
+{% endif %}
+
+<a href="{% url 'registro_list_json' %}">Ver en JSON</a>
+
+{% endblock %}
+
+
+
+
+

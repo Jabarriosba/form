@@ -1,0 +1,80 @@
+Documentación
+
+La aplicación permite la creación, actualización, eliminación y visualización
+de registros de personas, con información detallada como su nombre, apellido,
+fecha de nacimiento, género, correo electrónico, dirección, ciudad y descripción.
+
+Estructura del Proyecto
+El proyecto se compone de las siguientes partes:
+
+formulario/
+├── form/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── views.py
+├── formulario/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── templates/
+│   ├── base.html
+│   ├── messages.html
+│   ├── registro_form.html
+│   ├── registro_list.html
+└── manage.py
+
+
+El módulo form contiene la implementación de la aplicación,
+ incluyendo los modelos, las vistas.
+
+El archivo settings.py en el directorio formulario
+contiene la configuración de la aplicación Django,incluyendo
+la conexión a la base de datos y la configuración de la interfaz de usuario.
+
+El archivo urls.py en el directorio formulario contiene la definición
+ de las URL de la aplicación, que se corresponden con las vistas
+ definidas en el archivo views.py.
+
+Uso de la Aplicación
+
+Crear un entorno virtual:
+Una vez clonado el repositorio, se debe crear un entorno virtual
+de Python en la raíz del proyecto y activarlo.
+
+Instalar las dependencias:
+dentro del entorno virtual, se deben instalar todas las dependencias
+que se encuentran en el archivo "requirements.txt".
+ejecutando el siguiente comando en la terminal:
+
+pip install -r requirements.txt
+
+configurar la  base de datos en settings.py:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test_register',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+ Hacer migreaciones ejecutando:
+
+python manage.py migrate
+
+Iniciar el servidor web:
+
+python manage.py runserver
+
+acceder a la aplicación desde un navegador web
+en la siguiente dirección: http://localhost:8000/
+
